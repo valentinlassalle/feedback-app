@@ -7,11 +7,9 @@ function App() {
         {id: 3, text: 'Comment three'},
     ]
 
-    return (
-    <div className='container'>
-        <h1>{title}</h1>
-        <p>{body}</p>
-        
+    const loading = false
+    const showComments = true
+    const commentBlock =  (
         <div className="comments">
             <h3>Comments ({comments.length})</h3>
             <ul>
@@ -20,6 +18,16 @@ function App() {
                 ))}
             </ul>
         </div>
+    )
+
+    if(loading) return <h1>holding...</h1>
+
+    return (
+    <div className='container'>
+        <h1>{title}</h1>
+        <p>{body}</p>
+        
+        {showComments && commentBlock}
     </div>
         
     )
